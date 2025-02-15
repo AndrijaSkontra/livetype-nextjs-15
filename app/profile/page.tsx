@@ -1,10 +1,9 @@
 import ConnectButton from "@/app/connect-button";
 
-export default function Home() {
+export default function ProfilePage() {
   return (
-    <>
-      <p>Live type react :)</p>
+    <div>
       <ConnectButton />
-    </>
+    </div>
   );
 }
