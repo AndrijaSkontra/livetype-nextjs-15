@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { io } from "socket.io-client";
 
 type Props = {};
@@ -10,7 +11,7 @@ export default function ConnectButton({}: Props) {
   }
   return (
     <div>
-      <button onClick={connectToSocketServer}>Connect</button>
+      <Button onClick={connectToSocketServer}>Connect</Button>
     </div>
   );
 }
