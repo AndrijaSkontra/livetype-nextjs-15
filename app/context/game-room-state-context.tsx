@@ -3,7 +3,7 @@
 import { GameRoomState } from "@/app/types";
 import { createContext, ReactNode, useContext, useState } from "react";
 
-type GameRoomContextType = {
+export type GameRoomContextType = {
   gameRoomState: GameRoomState;
   setGameRoomState: (val: GameRoomState) => void;
 };
@@ -15,7 +15,9 @@ export const GameRoomStateProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [gameRoomState, setGameRoomState] = useState(GameRoomState.IN_GAME);
+  const [gameRoomState, setGameRoomState] = useState(
+    GameRoomState.READY_TO_JOIN,
+  );
 
   return (
     <GameRoomStateContext.Provider

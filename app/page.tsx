@@ -1,5 +1,5 @@
 "use client";
-import InGameCard from "@/app/components/in-game-card";
+import InGame from "@/app/components/in-game";
 import PostGameCard from "@/app/components/post-game-card";
 import ReadyToJoinCard from "@/app/components/ready-to-join-card";
 import LobbyCard from "@/app/components/room-details";
@@ -8,6 +8,7 @@ import { GameRoomState } from "@/app/types";
 
 export default function Home() {
   const gameRoomStateContext = useGameRoomStateContext();
+  console.log(gameRoomStateContext.gameRoomState, " <--- context");
 
   if (gameRoomStateContext.gameRoomState === GameRoomState.READY_TO_JOIN) {
     return (
@@ -28,7 +29,7 @@ export default function Home() {
   if (gameRoomStateContext.gameRoomState === GameRoomState.IN_GAME) {
     return (
       <div className="p-12">
-        <InGameCard />
+        <InGame />
       </div>
     );
   }

@@ -1,9 +1,29 @@
-type Props = { character: string };
+import { LetterStatus } from "@/app/types";
+import clsx from "clsx";
 
-export default function CharacterText({ character }: Props) {
+type Props = { character: string; letterStatus: LetterStatus };
+
+export default function CharacterText({ character, letterStatus }: Props) {
   if (character !== " ") {
-    return <p>{character}</p>;
+    return (
+      <p
+        className={clsx("", {
+          "text-destructive": letterStatus === LetterStatus.ERROR,
+          "text-green-400": letterStatus === LetterStatus.TYPED,
+        })}
+      >
+        {character}
+      </p>
+    );
   } else {
-    return <p>&nbsp;</p>;
+    return (
+      <p
+        className={clsx("", {
+          "bg-red-500": letterStatus === LetterStatus.ERROR,
+        })}
+      >
+        &nbsp;
+      </p>
+    );
   }
 }
